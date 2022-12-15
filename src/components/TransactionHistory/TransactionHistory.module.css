@@ -1,0 +1,23 @@
+.table {
+    margin-top: 30px;
+    width: 768px;
+    text-align: center;
+    border-collapse: separate;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #e0ddfc;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fbf9fb;
+}
+
+thead {
+    background-color: skyblue;
+    color: white;
+}
+
+tr {
+    height: 45px;
+}

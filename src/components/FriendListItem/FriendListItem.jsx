@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './FriendListItem.module.css';
 import { RiNotificationOffLine, RiNotificationLine } from 'react-icons/ri';
 
@@ -36,4 +37,15 @@ export const FriendListItem = ({ friends }) => {
       })}
     </ul>
   );
+};
+
+FriendListItem.propTypes = {
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    })
+  ),
 };

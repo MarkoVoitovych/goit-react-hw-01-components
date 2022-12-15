@@ -12,13 +12,16 @@
 }
 
 .title {
-    padding: 30px;
+    height: 120px;
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
 .statList {
     display: flex;
     width: 100%;
-    flex-basis: 100px;
+    flex-basis: 150px;
 }
 
 .item {
@@ -43,5 +46,5 @@
     height: 50%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start
 }
