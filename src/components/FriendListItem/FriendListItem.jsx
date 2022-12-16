@@ -2,50 +2,34 @@ import PropTypes from 'prop-types';
 import css from './FriendListItem.module.css';
 import { RiNotificationOffLine, RiNotificationLine } from 'react-icons/ri';
 
-export const FriendListItem = ({ friends }) => {
+export const FriendListItem = ({ avatar, name, isOnline }) => {
   return (
-    <ul className={css.friendList}>
-      {friends.map(friend => {
-        return (
-          <li key={friend.id} className={css.item}>
-            <span className={css.status}>
-              {friend.isOnline ? (
-                <RiNotificationLine
-                  size={24}
-                  style={{
-                    fill: 'rgb(0, 128, 0)',
-                  }}
-                />
-              ) : (
-                <RiNotificationOffLine
-                  size={24}
-                  style={{
-                    fill: 'rgb(128, 0, 0)',
-                  }}
-                />
-              )}
-            </span>
-            <img
-              className={css.avatar}
-              src={friend.avatar}
-              alt={friend.name}
-              width="96"
-            />
-            <p className={css.name}>{friend.name}</p>
-          </li>
-        );
-      })}
-    </ul>
+    <li className={css.item}>
+      <span className={css.status}>
+        {isOnline ? (
+          <RiNotificationLine
+            size={24}
+            style={{
+              fill: 'rgb(0, 128, 0)',
+            }}
+          />
+        ) : (
+          <RiNotificationOffLine
+            size={24}
+            style={{
+              fill: 'rgb(128, 0, 0)',
+            }}
+          />
+        )}
+      </span>
+      <img className={css.avatar} src={avatar} alt={name} width="96" />
+      <p className={css.name}>{name}</p>
+    </li>
   );
 };
 
 FriendListItem.propTypes = {
-  friends: PropTypes.arrayOf(
-    PropTypes.shape({
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isOnline: PropTypes.bool.isRequired,
-      id: PropTypes.number.isRequired,
-    })
-  ),
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isOnline: PropTypes.bool.isRequired,
 };
